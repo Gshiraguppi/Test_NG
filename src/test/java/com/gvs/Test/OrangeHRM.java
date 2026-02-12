@@ -12,8 +12,8 @@ public class OrangeHRM {
 	@Test
 	public void TestHRM() throws InterruptedException {
 		
-		//WebDriverManager.chromedriver().setup();
-		WebDriverManager.edgedriver().setup();
+		WebDriverManager.chromedriver().setup();
+		//WebDriverManager.edgedriver().setup();
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.get("https://www.orangehrm.com/");

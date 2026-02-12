@@ -14,8 +14,8 @@ public class FirstTest {
 	@Test
 	public void TestGoogle() throws InterruptedException {
 		
-		//WebDriverManager.chromedriver().setup();
-		WebDriverManager.edgedriver().setup();
+		WebDriverManager.chromedriver().setup();
+		//WebDriverManager.edgedriver().setup();
 		WebDriver driver = new ChromeDriver();
 		DesiredCapabilities caps = new DesiredCapabilities();
 		caps.acceptInsecureCerts();
