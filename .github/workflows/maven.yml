@@ -1,36 +1,38 @@
-# This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-maven
-
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-
-name: Java CI with Maven
+name: Selenium TestNG CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ main ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ main ]
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
 
 jobs:
-  build:
-
-    runs-on: ubuntu-latest
+  test:
+    runs-on: ubuntu-latest # Use a GitHub-hosted runner
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v4 # Checkout the repository code
+
     - name: Set up JDK 17
-      uses: actions/setup-java@v4
+      uses: actions/setup-java@v4 # Set up the Java Development Kit
       with:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
-    - name: Install Google Chrome
-      uses: browser-actions/setup-chrome@latest
-    - name: Build with Maven
-      #run: mvn -B package --file pom.xml
-      run: mvn clean test -DXmlFile=MyTest.xml -DenableBorwserOptions=true -Dmaven.test.failure.ignore=true
 
-    
+    - name: Install Google Chrome
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y google-chrome-stable # Install Chrome browser
+
+    - name: Run Selenium TestNG tests with Maven
+      run: mvn clean test -DsuiteXmlFiles=MyTest.xml -DenableBorwserOptions=true -Dmaven.test.failure.ignore=true # Execute tests using Maven
+
+    - name: Upload TestNG reports as artifacts
+      uses: actions/upload-artifact@v4 # Archive test reports
+      if: always() # Run even if previous steps fail
+      with:
+        name: test-results-report
+        path: target/testoutput/index.html # Path to reports
