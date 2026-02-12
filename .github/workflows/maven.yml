@@ -27,6 +27,8 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
+    - name: Install Google Chrome
+      uses: browser-actions/setup-chrome@latest
     - name: Build with Maven
       #run: mvn -B package --file pom.xml
       run: mvn clean test -DXmlFile=MyTest.xml -DenableBorwserOptions=true -Dmaven.test.failure.ignore=true
