@@ -18,6 +18,10 @@ public class FirstTest {
 		//WebDriverManager.chromedriver().setup();
 		//WebDriverManager.edgedriver().setup();
 		WebDriver driver = new ChromeDriver();
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--headless");
+// Pass the options to the ChromeDriver constructor
+
 		DesiredCapabilities caps = new DesiredCapabilities();
 		caps.acceptInsecureCerts();
 		driver.manage().window().maximize();

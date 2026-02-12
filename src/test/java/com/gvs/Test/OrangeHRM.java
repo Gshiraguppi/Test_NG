@@ -16,6 +16,10 @@ public class OrangeHRM {
 		WebDriverManager.chromedriver().clearDriverCache().setup();
 		//WebDriverManager.edgedriver().setup();
 		WebDriver driver = new ChromeDriver();
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--headless");
+		// Pass the options to the ChromeDriver constructor
+
 		driver.manage().window().maximize();
 		driver.get("https://www.orangehrm.com/");
 		driver.findElement(By.name("q")).sendKeys("HYR Tutorials", Keys.ENTER);
