@@ -18,7 +18,7 @@ public class FirstTest {
 		WebDriverManager.chromedriver().clearDriverCache().setup();
 		//WebDriverManager.edgedriver().setup();
 		WebDriver driver = new ChromeDriver();
-		ChromeOptions options = new ChromeOptions();
+		
 		ChromeOptions options = new ChromeOptions();
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
