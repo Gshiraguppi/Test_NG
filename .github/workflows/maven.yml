@@ -29,6 +29,6 @@ jobs:
         cache: maven
     - name: Build with Maven
       #run: mvn -B package --file pom.xml
-      run: mvn clean test -DXmlFile=pom.xml -DenableBorwserOptions=true -Dmaven.test.failure.ignore=true
+      run: mvn clean test -DXmlFile=MyTest.xml -DenableBorwserOptions=true -Dmaven.test.failure.ignore=true
 
     
