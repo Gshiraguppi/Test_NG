@@ -35,4 +35,4 @@ jobs:
       if: always() # Run even if previous steps fail
       with:
         name: test-results-report
-        path: target/testoutput/index.html # Path to reports
+        path: target/test-output/index.html # Path to reports
