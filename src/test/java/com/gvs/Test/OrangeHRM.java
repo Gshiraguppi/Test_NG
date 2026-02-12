@@ -13,7 +13,7 @@ public class OrangeHRM {
 	@Test
 	public void TestHRM() throws InterruptedException {
 		
-		WebDriverManager.chromedriver().setup();
+		//WebDriverManager.chromedriver().setup();
 		WebDriverManager.chromedriver().clearDriverCache().setup();
 		//WebDriverManager.edgedriver().setup();
 		WebDriver driver = new ChromeDriver();
@@ -23,7 +23,7 @@ public class OrangeHRM {
 
 		driver.manage().window().maximize();
 		driver.get("https://www.orangehrm.com/");
-		driver.findElement(By.name("q")).sendKeys("HYR Tutorials", Keys.ENTER);
+		//driver.findElement(By.name("q")).sendKeys("HYR Tutorials", Keys.ENTER);
 		System.out.println(driver.getTitle());
 		Thread.sleep(5000);
 		driver.quit();

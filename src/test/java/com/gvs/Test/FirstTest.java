@@ -14,9 +14,8 @@ public class FirstTest {
 
 	@Test
 	public void TestGoogle() throws InterruptedException {
-		WebDriverManager.chromedriver().setup();
-		WebDriverManager.chromedriver().clearDriverCache().setup();
 		//WebDriverManager.chromedriver().setup();
+		WebDriverManager.chromedriver().clearDriverCache().setup();
 		//WebDriverManager.edgedriver().setup();
 		WebDriver driver = new ChromeDriver();
 		ChromeOptions options = new ChromeOptions();
@@ -33,17 +32,4 @@ public class FirstTest {
 		driver.quit();
 	}
 	
-	@Test
-	public void TestGoogleincrhome() throws InterruptedException {
-		
-		WebDriverManager.chromedriver().setup();
-		//WebDriverManager.edgedriver().setup();
-		WebDriver driver = new ChromeDriver();
-		driver.manage().window().maximize();
-		driver.get("https://www.google.com/");
-		driver.findElement(By.name("q")).sendKeys("HYR Tutorials", Keys.ENTER);
-		System.out.println(driver.getTitle());
-		Thread.sleep(5000);
-		driver.quit();
 	}
-}
