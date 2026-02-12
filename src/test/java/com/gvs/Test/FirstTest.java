@@ -13,8 +13,8 @@ public class FirstTest {
 
 	@Test
 	public void TestGoogle() throws InterruptedException {
-		
-		WebDriverManager.chromedriver().setup();
+		WebDriverManager.chromedriver().clearDriverCache().setup();
+		//WebDriverManager.chromedriver().setup();
 		//WebDriverManager.edgedriver().setup();
 		WebDriver driver = new ChromeDriver();
 		DesiredCapabilities caps = new DesiredCapabilities();
