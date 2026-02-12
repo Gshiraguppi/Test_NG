@@ -19,8 +19,10 @@ public class FirstTest {
 		//WebDriverManager.edgedriver().setup();
 		WebDriver driver = new ChromeDriver();
 		ChromeOptions options = new ChromeOptions();
-		options.addArguments("--headless");
-// Pass the options to the ChromeDriver constructor
+		ChromeOptions options = new ChromeOptions();
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--headless=new"); // Enable headless mode
 
 		DesiredCapabilities caps = new DesiredCapabilities();
 		caps.acceptInsecureCerts();
